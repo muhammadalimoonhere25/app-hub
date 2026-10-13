@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>App Hub</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #10131b;
+      color: white;
+    }
+    header {
+      background: #202635;
+      padding: 24px 16px;
+      text-align: center;
+    }
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 0;
+      margin: 12px 0;
+    }
+    .app {
+      background: #202635;
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 14px;
+    }
+    a { color: #7db8ff; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>App Hub</h1>
+    <p>Discover Android apps</p>
+  </header>
+  <main>
+    <input id="search" placeholder="Search apps...">
+    <div id="apps">
+      <article class="app">
+        <h2>Open-source apps</h2>
+        <p>Explore apps from trusted developers.</p>
+        <a href="https://f-droid.org/">Browse F-Droid</a>
+      </article>
+      <article class="app">
+        <h2>Android tools</h2>
+        <p>Discover free and open-source software.</p>
+        <a href="https://github.com/">Browse GitHub</a>
+      </article>
+    </div>
+  </main>
+  <script>
+    const search = document.getElementById("search");
+    search.addEventListener("input", () => {
+      document.querySelectorAll(".app").forEach(app => {
+        app.hidden = !app.innerText.toLowerCase()
+          .includes(search.value.toLowerCase());
+      });
+    });
+  </script>
+</body>
+</html>
